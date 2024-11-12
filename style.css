@@ -1,0 +1,100 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #f0f0f0;
+    background: #121212;
+    overflow-x: hidden;
+}
+
+/* Navbar Styling */
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 20px;
+    background: rgba(20, 20, 20, 0.8);
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: #ff004f;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+.navbar ul li a::before,
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #ff004f;
+    left: 0;
+    transition: transform 0.3s;
+}
+
+.navbar ul li a::before { top: -4px; transform: scaleX(0); }
+.navbar ul li a::after { bottom: -4px; transform: scaleX(0); }
+
+.navbar ul li a:hover::before,
+.navbar ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Hero Section with Glitch Effect */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.glitch-effect h1, .glitch-effect p {
+    font-size: 3em;
+    position: relative;
+    display: inline-block;
+    color: #ff004f;
+}
+
+.glitch-effect h1::before,
+.glitch-effect h1::after,
+.glitch-effect p::before,
+.glitch-effect p::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+}
+
+.glitch-effect h1::before {
+    color: #00ffea;
+    z-index: -1;
+    transform: translate(-3px, -3px);
+    animation: glitch 2s infinite;
+}
+
+.glitch-effect h1::after {
+    color: #f600ff;
+    z-index: -1;
+    transform: translate(3px, 3px);
+    animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); opacity: 1; }
+    20% { transform: translate(-5px, 5px); }
+    40% { transform: translate(5px, -5px); opacity: 0.5; }
+    60% { transform: translate(-5px, -5px); }
+    80% { transform: translate(5px, 5px); opacity: 1; }
+    100% { transform: translate(0); }
+}
